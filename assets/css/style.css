@@ -1,0 +1,22 @@
+body{
+    background-image: url(../images/background.png);
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    background-size: cover;
+    font-family: 'ABeeZee', sans-serif;
+}
+
+#button-div{
+    background: rgb(3,3,3);
+    background: linear-gradient(284deg, rgba(3,3,3,1) 0%, rgba(155,119,203,1) 56%, rgba(193,207,230,1) 100%);
+}
+
+#search-term{
+    background-color: rgba(3,3,3,1);
+    color: rgba(193,207,230,1);
+}
+
+.btn{
+    background-color: rgba(155,119,203,1);
+    color: rgba(3,3,3,1);
+}
