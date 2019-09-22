@@ -29,7 +29,7 @@ $("#submit-button").on("click", function () {
     buttonDiv(); //Running this function breaks the .gif button on click function
 })
 
-$(".gif-button").on("click", function () {
+$(document).on("click", ".gif-button", function () {
     // clear HTML div
     $("gif-div").empty()
     
@@ -38,7 +38,7 @@ $(".gif-button").on("click", function () {
     console.log(thisButton);
     // insert id into the queryUrl search parameter
     var queryUrl = "https://api.giphy.com/v1/gifs/search?api_key=FOfyGN9BMr6vawWU2dv7rUSHH2nHLt2y&q=" +
-        thisButton + "&limit=10&offset=0&rating=G&lang=en";
+        thisButton + "&limit=4&offset=0&rating=G&lang=en";
     console.log(queryUrl);
 
     // ajax to grab the response object
@@ -56,7 +56,8 @@ $(".gif-button").on("click", function () {
             var div = $("<div>");
             div.addClass("gif-div")
             var img = $("<img>");
-            img.attr('src', data[i].images.fixed_height.url);
+            img.addClass("gif-img")
+            img.attr('src', data[i].images.original_still.url);
             var p = $("<p>").html("Rating: " + data[i].rating + "<br>" + "Title: " + data[i].title);
 
             // append the elements together
