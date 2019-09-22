@@ -9,7 +9,7 @@ function buttonDiv() {
     $("#button-div").empty()
     for (var i = 0; i < topics.length; i++) {
         var button = $("<button>");
-        button.addClass('gif-button mr-1');
+        button.addClass('gif-button m-1');
         button.attr('data-id', topics[i]);
         button.text(topics[i]);
         $("#button-div").append(button);
@@ -57,7 +57,7 @@ $(".gif-button").on("click", function () {
             div.addClass("gif-div")
             var img = $("<img>");
             img.attr('src', data[i].images.fixed_height.url);
-            var p = $("<p>").text("Rating: " + data[i].rating);
+            var p = $("<p>").html("Rating: " + data[i].rating + "<br>" + "Title: " + data[i].title);
 
             // append the elements together
             div.append(img);
