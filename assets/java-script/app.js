@@ -32,7 +32,7 @@ $("#submit-button").on("click", function () {
 $(document).on("click", ".gif-button", function () {
     // clear HTML div
     $("gif-div").empty()
-    
+
     // grab id of the button
     var thisButton = $(this).attr('data-id');
     console.log(thisButton);
@@ -57,7 +57,7 @@ $(document).on("click", ".gif-button", function () {
             div.addClass("gif-div")
             var img = $("<img>");
             img.addClass("gif-img")
-            img.attr('src', data[i].images.original_still.url);
+            img.attr({ 'src': data[i].images.original_still.url, 'data-state': 'still', 'data-still': data[i].images.original_still.url, 'data-animate': data[i].images.original.url });
             var p = $("<p>").html("Rating: " + data[i].rating + "<br>" + "Title: " + data[i].title);
 
             // append the elements together
@@ -67,4 +67,23 @@ $(document).on("click", ".gif-button", function () {
             $("#gif-div").prepend(div);
         }
     })
+})
+
+$(document).on("click", ".gif-img", function () {
+    // variable to hold the state of the image
+    var state = $(this).attr("data-state");
+    console.log(state);
+
+    var animate = $(this).attr("data-animate");
+    console.log(animate);
+
+    if (state === "still") {
+        $(this).attr("src", animate);
+        $(this).attr("data-state", "animate");
+    } else if (state === "animate") {
+        var still = $(this).attr("data-still");
+        console.log(still)
+        $(this).attr("src", still);
+        $(this).attr("data-state", "still");
+    }
 })
