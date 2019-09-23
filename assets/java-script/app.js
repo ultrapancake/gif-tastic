@@ -27,7 +27,8 @@ $(document).ready(function () {
         // console log the array to check user input at end of array
         console.log(topics);
         // --------- INSERT function that populates buttons from array -------
-        buttonDiv(); //Running this function breaks the .gif button on click function
+        buttonDiv(); 
+        $("#search-term").val("");
     })
 
     $(document).on("click", ".gif-button", function () {
@@ -58,7 +59,12 @@ $(document).ready(function () {
                 div.addClass("gif-div")
                 var img = $("<img>");
                 img.addClass("gif-img")
-                img.attr({ 'src': data[i].images.original_still.url, 'data-state': 'still', 'data-still': data[i].images.original_still.url, 'data-animate': data[i].images.original.url });
+                img.attr({
+                    'src': data[i].images.original_still.url,
+                    'data-state': 'still',
+                    'data-still': data[i].images.original_still.url,
+                    'data-animate': data[i].images.original.url
+                });
                 var p = $("<p>").html("Rating: " + data[i].rating + "<br>" + "Title: " + data[i].title);
 
                 // append the elements together
@@ -73,7 +79,7 @@ $(document).ready(function () {
     $(document).on("click", ".gif-img", function () {
         // variable to hold the state of the image
         var state = $(this).attr("data-state");
-        // console.log(state);
+        console.log(state);
 
         var animate = $(this).attr("data-animate");
         // console.log(animate);
