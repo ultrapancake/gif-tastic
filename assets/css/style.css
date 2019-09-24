@@ -24,11 +24,18 @@ body{
     background-color: rgba(155,119,203,1);
     color: rgba(3,3,3,1);
 }
+.btn:hover{
+    background-color: #fff;
+}
 
 .gif-button{
     background-color: rgba(3,3,3,1);
     color: rgba(193,207,230,1);
 
+}
+
+.gif-button:hover{
+    background-color: rgba(155,119,203,1);
 }
 .jumbotron{
     background: #121212;
